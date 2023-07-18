@@ -5,10 +5,10 @@ import bcrypt from "bcrypt";
 import crypto from "crypto";
 
 const schema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, "Please enter your name"],
-  },
+  // name: {
+  //   type: String,
+  //   required: [true, "Please enter your name"],
+  // },
   email: {
     type: String,
     required: [true, "Please enter your email address"],
@@ -38,36 +38,19 @@ const schema = new mongoose.Schema({
     default: "user",
   },
 
-  subscription: {
-    id: String,
-    status: String,
-  },
+  // subscription: {
+  //   id: String,
+  //   status: String,
+  // },
 
-  avatar: {
-    public_id: {
-      type: String,
-      required: true,
-    },
-    url: {
-      type: String,
-      required: true,
-    },
-  },
-  playlist: [
-    {
-      course: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Course",
-      },
-      poster: String,
-    },
-  ],
+
+
   createdAt: {
     type: Date,
     default: Date.now,
   },
-  resetPasswordToken: String,
-  resetPasswordExpire: String,
+  // resetPasswordToken: String,
+  // resetPasswordExpire: String,
 });
 
 schema.pre("save", async function (next) {
